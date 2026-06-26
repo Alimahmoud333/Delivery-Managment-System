@@ -257,7 +257,8 @@ Testing includes:
 # Installation
 
 ```bash
-git clone Delivery-Managment-System
+
+git clone https://github.com/your-username/Delivery-Management-System.git
 
 
 cd backend
@@ -265,6 +266,12 @@ cd backend
 composer install
 
 cp .env.example .env
+
+composer require laravel/sanctum
+
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+composer require stripe/stripe-php
 
 php artisan key:generate
 
