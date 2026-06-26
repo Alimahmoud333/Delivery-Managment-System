@@ -313,7 +313,6 @@ Delivery-Management-System
 │   ├── Context API
 │   ├── Reducers
 │   ├── Pages
-│   ├── Services
 │   ├── Material UI
 │   └── Routing
 │
