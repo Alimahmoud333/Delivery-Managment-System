@@ -1,0 +1,2138 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Default module",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/api/profile": {
+      "get": {
+        "summary": "User Profile",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/[http://127.0.0.1:8000/api/logout": {
+      "get": {
+        "summary": "Logout",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/register": {
+      "post": {
+        "summary": "Registeration",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "multipart/form-data",
+              "application/json"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "ali mahmoud",
+                    "type": "string"
+                  },
+                  "email": {
+                    "example": "ali1233@gmail.com",
+                    "type": "string"
+                  },
+                  "password": {
+                    "example": "1234567",
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "example": "1234567",
+                    "type": "string"
+                  },
+                  "role": {
+                    "example": "customer",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "example": "+96170762902",
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "name": "ali mahmoud",
+                "email": "ali1233@gmail.com",
+                "password": "1234567",
+                "password_confirmation": "1234567",
+                "role": "customer",
+                "phone": "+96170762902"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "status": true,
+                  "message": "Register successful",
+                  "user": {
+                    "name": "Driver User",
+                    "email": "driver@test.com",
+                    "role": "driver",
+                    "phone": "22222222",
+                    "updated_at": "2026-04-25T20:29:08.000000Z",
+                    "created_at": "2026-04-25T20:29:08.000000Z",
+                    "id": 13
+                  },
+                  "token": "58|jTtQz8NqXDU3xtqMJKl4Bvwro5QP3gD8xzt3ZfZs87f3a81e"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/login": {
+      "post": {
+        "summary": "Login",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "manager1000@gmail.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1234567",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "status": true,
+                  "message": "Login successful",
+                  "user": {
+                    "id": 13,
+                    "name": "Driver User",
+                    "email": "driver@test.com",
+                    "role": "driver",
+                    "phone": "22222222",
+                    "created_at": "2026-04-25T20:29:08.000000Z",
+                    "updated_at": "2026-04-25T20:29:08.000000Z"
+                  },
+                  "token": "59|Fa9xio5R6MHRJyFYqMqNJ4IvdDeemv6QX2Ytu5LT590b670e"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "OTP Verification",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/customer/addresses": {
+      "post": {
+        "summary": "Add Customer Address",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "example": "beirut",
+                    "type": "string"
+                  },
+                  "street": {
+                    "example": "street4",
+                    "type": "string"
+                  },
+                  "lat": {
+                    "example": 36.8938,
+                    "type": "number"
+                  },
+                  "lng": {
+                    "example": 37.5018,
+                    "type": "number"
+                  }
+                }
+              },
+              "example": {
+                "city": "beirut",
+                "street": "street4",
+                "lat": 36.8938,
+                "lng": 37.5018
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "city": "Beirut",
+                  "street": "Hamra",
+                  "lat": "33.8938",
+                  "lng": "35.5018",
+                  "user_id": 14,
+                  "updated_at": "2026-04-26T07:08:13.000000Z",
+                  "created_at": "2026-04-26T07:08:13.000000Z",
+                  "id": 5
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "get addresses",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/customer/addresses/3": {
+      "delete": {
+        "summary": "Delete Customer Address",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "message": "Unauthenticated."
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/customer/orders": {
+      "post": {
+        "summary": "Create Order",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "pickup_address_id": 6,
+                "dropoff_address_id": 4,
+                "price": 2000,
+                "items": [
+                  {
+                    "item_name": "soss",
+                    "quantity": 2
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get All Orders",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/customer/orders/4": {
+      "get": {
+        "summary": "Get Single Order",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "id": 4,
+                  "user_id": 14,
+                  "pickup_address_id": 6,
+                  "dropoff_address_id": 7,
+                  "status": "pending",
+                  "price": "20.00",
+                  "created_at": "2026-04-26T07:25:59.000000Z",
+                  "updated_at": "2026-04-26T07:25:59.000000Z",
+                  "items": [
+                    {
+                      "id": 5,
+                      "order_id": 4,
+                      "item_name": "Pizza",
+                      "quantity": 2,
+                      "created_at": "2026-04-26T07:25:59.000000Z",
+                      "updated_at": "2026-04-26T07:25:59.000000Z"
+                    },
+                    {
+                      "id": 6,
+                      "order_id": 4,
+                      "item_name": "Drink",
+                      "quantity": 1,
+                      "created_at": "2026-04-26T07:25:59.000000Z",
+                      "updated_at": "2026-04-26T07:25:59.000000Z"
+                    }
+                  ],
+                  "delivery": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/customer/orders/5/cancel": {
+      "post": {
+        "summary": "Order Cancel",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "multipart/form-data",
+              "application/json"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": " Bearer 66|Yn3pBqE7o087Zwfe3I4ZJFM0lqEZaEArC8LGr4zDcbe5623e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/customer/payment/intent": {
+      "post": {
+        "summary": "payment",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "order_id": {
+                    "example": 5,
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "order_id": 5
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/customer/rate": {
+      "post": {
+        "summary": "rating driver",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 5,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "driver_id",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 2,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "rating",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": 5,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "Great service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/messages": {
+      "post": {
+        "summary": "send message",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "receiver_id": {
+                    "example": 3,
+                    "type": "integer"
+                  },
+                  "message": {
+                    "example": "im good what about you ??,see you soon",
+                    "type": "string"
+                  },
+                  "type": {
+                    "example": "text",
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "receiver_id": 3,
+                "message": "im good what about you ??,see you soon",
+                "type": "text"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "all messages",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/messages/1": {
+      "delete": {
+        "summary": "delete message",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/messages/conversation/4": {
+      "get": {
+        "summary": "get converstion",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "sender_id": 2,
+                    "receiver_id": 4,
+                    "message": "hello",
+                    "created_at": "2026-04-27T13:02:23.000000Z",
+                    "updated_at": "2026-04-27T13:02:23.000000Z",
+                    "sender": {
+                      "id": 2,
+                      "name": "user",
+                      "email": "user3232@test.com",
+                      "role": "customer",
+                      "phone": "74000033",
+                      "created_at": "2026-04-27T10:06:02.000000Z",
+                      "updated_at": "2026-04-27T10:06:02.000000Z"
+                    },
+                    "receiver": {
+                      "id": 4,
+                      "name": "finance",
+                      "email": "finance3232@test.com",
+                      "role": "finance",
+                      "phone": "7400333",
+                      "created_at": "2026-04-27T10:06:41.000000Z",
+                      "updated_at": "2026-04-27T10:06:41.000000Z"
+                    }
+                  }
+                ]
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/driver/deliveries": {
+      "get": {
+        "summary": "driver deliveries",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/driver/deliveries/2/accept": {
+      "post": {
+        "summary": "Accept order",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/driver/deliveries/2/start": {
+      "post": {
+        "summary": "start delivery",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/driver/deliveries/2/delivered": {
+      "post": {
+        "summary": "order deliveried",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/driver/toggle-availability": {
+      "post": {
+        "summary": "toggle availability",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "available": true
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/driver/update-profile": {
+      "post": {
+        "summary": "update profile",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "vehicle_type": {
+                    "example": "toyota",
+                    "type": "string"
+                  },
+                  "license_number": {
+                    "example": "ABC1234",
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "vehicle_type": "toyota",
+                "license_number": "ABC1234"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/messages/conversation/3": {
+      "get": {
+        "summary": "get converstion",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "sender_id": 2,
+                    "receiver_id": 4,
+                    "message": "hello",
+                    "created_at": "2026-04-27T13:02:23.000000Z",
+                    "updated_at": "2026-04-27T13:02:23.000000Z",
+                    "sender": {
+                      "id": 2,
+                      "name": "user",
+                      "email": "user3232@test.com",
+                      "role": "customer",
+                      "phone": "74000033",
+                      "created_at": "2026-04-27T10:06:02.000000Z",
+                      "updated_at": "2026-04-27T10:06:02.000000Z"
+                    },
+                    "receiver": {
+                      "id": 4,
+                      "name": "finance",
+                      "email": "finance3232@test.com",
+                      "role": "finance",
+                      "phone": "7400333",
+                      "created_at": "2026-04-27T10:06:41.000000Z",
+                      "updated_at": "2026-04-27T10:06:41.000000Z"
+                    }
+                  }
+                ]
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/finance/payments": {
+      "get": {
+        "summary": "payments",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "order_id": 5,
+                    "user_id": 2,
+                    "amount": "50.00",
+                    "gateway": "stripe",
+                    "transaction_id": "pi_3TQmsVPFWeNLjDdF2Dm926rJ",
+                    "status": "pending",
+                    "created_at": "2026-04-27T10:58:31.000000Z",
+                    "updated_at": "2026-04-27T10:59:11.000000Z",
+                    "order": {
+                      "id": 5,
+                      "user_id": 2,
+                      "pickup_address_id": 1,
+                      "dropoff_address_id": 2,
+                      "status": "accepted",
+                      "price": "50.00",
+                      "created_at": "2026-04-27T10:56:34.000000Z",
+                      "updated_at": "2026-04-27T11:09:55.000000Z",
+                      "user": {
+                        "id": 2,
+                        "name": "user",
+                        "email": "user3232@test.com",
+                        "role": "customer",
+                        "phone": "74000033",
+                        "created_at": "2026-04-27T10:06:02.000000Z",
+                        "updated_at": "2026-04-27T10:06:02.000000Z"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/finance/revenue": {
+      "get": {
+        "summary": "revenue",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/manager/orders": {
+      "get": {
+        "summary": "get orders",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/manager/drivers": {
+      "get": {
+        "summary": "get all drivers",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/manager/assign-driver/28/2": {
+      "post": {
+        "summary": "assign driver ",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/manager/orders/4/in_transit": {
+      "post": {
+        "summary": "change status",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/manager/deliveries": {
+      "get": {
+        "summary": "all deliveries",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/users": {
+      "post": {
+        "summary": "add user",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "new user",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "lastnew@test.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "123456",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "71113311",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "customer",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "name": "new user",
+                  "email": "newuser@test.com",
+                  "phone": "71113311",
+                  "role": "customer",
+                  "updated_at": "2026-04-27T10:18:11.000000Z",
+                  "created_at": "2026-04-27T10:18:11.000000Z",
+                  "id": 7,
+                  "driver": null
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "all users",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": [
+              "application/json",
+              "multipart/form-data"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": [
+                  {
+                    "id": 5,
+                    "name": "manager",
+                    "email": "manager3232@test.com",
+                    "role": "manager",
+                    "phone": "7600333",
+                    "created_at": "2026-04-27T10:07:07.000000Z",
+                    "updated_at": "2026-04-27T10:07:07.000000Z",
+                    "driver": null
+                  },
+                  {
+                    "id": 4,
+                    "name": "finance",
+                    "email": "finance3232@test.com",
+                    "role": "finance",
+                    "phone": "7400333",
+                    "created_at": "2026-04-27T10:06:41.000000Z",
+                    "updated_at": "2026-04-27T10:06:41.000000Z",
+                    "driver": null
+                  },
+                  {
+                    "id": 3,
+                    "name": "admin",
+                    "email": "admin3232@test.com",
+                    "role": "admin",
+                    "phone": "74000033",
+                    "created_at": "2026-04-27T10:06:16.000000Z",
+                    "updated_at": "2026-04-27T10:06:16.000000Z",
+                    "driver": null
+                  },
+                  {
+                    "id": 2,
+                    "name": "user",
+                    "email": "user3232@test.com",
+                    "role": "customer",
+                    "phone": "74000033",
+                    "created_at": "2026-04-27T10:06:02.000000Z",
+                    "updated_at": "2026-04-27T10:06:02.000000Z",
+                    "driver": null
+                  },
+                  {
+                    "id": 1,
+                    "name": "Driver new",
+                    "email": "driver3232@test.com",
+                    "role": "driver",
+                    "phone": "74000033",
+                    "created_at": "2026-04-27T10:05:23.000000Z",
+                    "updated_at": "2026-04-27T10:05:23.000000Z",
+                    "driver": {
+                      "id": 1,
+                      "user_id": 1,
+                      "vehicle_type": "unknown",
+                      "license_number": "unknown",
+                      "is_available": true,
+                      "current_lat": null,
+                      "current_lng": null,
+                      "last_online_at": null,
+                      "created_at": "2026-04-27T10:05:23.000000Z",
+                      "updated_at": "2026-04-27T10:05:23.000000Z"
+                    }
+                  }
+                ]
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/users/2": {
+      "get": {
+        "summary": "get user by id",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/users/1": {
+      "put": {
+        "summary": "update user",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "Updated Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "updated@test.com",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "72222222",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "driver",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vehicle_type",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "bike",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "license_number",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "XYZ999",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/users/8": {
+      "delete": {
+        "summary": "delete user",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/orders": {
+      "get": {
+        "summary": "all orders",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/orders-status": {
+      "get": {
+        "summary": "orders by status",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/ratings": {
+      "get": {
+        "summary": "ratings",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/drivers/1/toggle": {
+      "post": {
+        "summary": "toggle driver",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/stats": {
+      "get": {
+        "summary": "counts stats",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "orders": 0,
+                  "pending": 0,
+                  "delivered": 0,
+                  "drivers": 2,
+                  "customers": 2
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/best-drivers": {
+      "get": {
+        "summary": "best drivers",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin/top-drivers-orders": {
+      "get": {
+        "summary": "top drivers orders",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/notifications": {
+      "get": {
+        "summary": "driver notification",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/notifications/236a25b4-0b74-4ed3-a523-28721b7c0282/read": {
+      "post": {
+        "summary": "read mark",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "message": "Marked as read"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/notifications/439ac792-ce26-432c-b8ab-bb2ab68fd708/read": {
+      "post": {
+        "summary": "read mark ",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "responses": {},
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": [],
+  "security": []
+}
