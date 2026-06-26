@@ -257,7 +257,8 @@ Testing includes:
 # Installation
 
 ```bash
-git clone <repository>
+git clone Delivery-Managment-System
+
 
 cd backend
 
