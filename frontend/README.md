@@ -215,13 +215,69 @@ src
 
 # Installation
 
+Clone the repository:
+
 ```bash
-git clone Delivery-Managment-System
+git clone https://github.com/your-username/Delivery-Management-System.git
+```
 
+Navigate to the frontend project:
+
+```bash
 cd frontend
+```
 
+Install project dependencies:
+
+```bash
 npm install
+```
 
+Install React Router:
+
+```bash
+npm install react-router-dom
+```
+
+Install Axios:
+
+```bash
+npm install axios
+```
+
+Install Material UI:
+
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+Install Material UI Icons:
+
+```bash
+npm install @mui/icons-material
+```
+
+Install Bootstrap:
+
+```bash
+npm install bootstrap
+```
+
+Install Google Maps:
+
+```bash
+npm install @react-google-maps/api
+```
+
+Install PDF libraries:
+
+```bash
+npm install jspdf jspdf-autotable
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
