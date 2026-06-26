@@ -1,336 +1,343 @@
 # Delivery Management System
 
-A full-stack Delivery Management System developed using **Laravel** and **React.js** to manage the complete delivery process between customers, drivers, managers, finance staff, and administrators.
+## Overview
 
-The application provides secure authentication, role-based authorization, order management, driver assignment, payment processing, notifications, messaging, ratings, and location management through an intuitive web interface.
+The Delivery Management System is a full-stack web application developed using Laravel and React.js to simplify and automate the complete delivery workflow between customers, drivers, managers, finance staff, and administrators.
 
----
+The application follows a RESTful API architecture where Laravel serves as the backend and React.js provides the frontend interface. It includes secure authentication, role-based authorization, order management, payment processing, notifications, messaging, ratings, and Google Maps integration.
 
-# Project Overview
+## Features
 
-The system digitizes the delivery workflow by allowing customers to create delivery requests while managers assign drivers, drivers complete deliveries, finance staff manage payments, and administrators oversee the entire platform.
+### Authentication
 
-The project follows a RESTful API architecture where Laravel serves as the backend API and React.js provides the frontend user interface.
+* User Registration
+* Secure Login and Logout
+* OTP Verification using Twilio Verify
+* Laravel Sanctum Authentication
+* Role-Based Authorization
+* Protected API Routes
+* Password Hashing
+* Request Validation
 
----
+### User Roles
 
-# Main Features
+The system supports five different roles:
 
-## Authentication
+* Administrator
+* Customer
+* Driver
+* Manager
+* Finance
 
-- User Registration
-- Login / Logout
-- Phone Number OTP Verification
-- Laravel Sanctum Authentication
-- Role-Based Authorization
-- Protected API Routes
-- Password Encryption
+Each role has its own dashboard, permissions, and accessible modules based on middleware authorization.
 
----
-
-# User Roles
-
-The system supports five different user roles:
-
-- Admin
-- Customer
-- Driver
-- Manager
-- Finance
-
-Each role has its own dashboard, permissions, and accessible modules.
-
----
-
-# Customer Module
+## Customer Module
 
 Customers can:
 
-- Register and verify their phone number using OTP
-- Login securely
-- Create, edit and delete addresses
-- Select pickup and drop-off addresses
-- View saved addresses on Google Maps
-- Create delivery orders
-- Add multiple items to each order
-- Calculate total delivery price
-- Track order status
-- Pay online using Stripe
-- Rate completed orders
-- Rate drivers
-- Receive delivery notifications
-- Chat with drivers and system users
+* Register and verify their phone number using OTP
+* Login securely
+* Manage personal profile
+* Create, update, and delete addresses
+* Save pickup and drop-off locations
+* Select addresses from Google Maps
+* Store latitude and longitude coordinates
+* Create delivery orders
+* Add multiple order items
+* Calculate total order price
+* View order history
+* Track order status
+* Pay online using Stripe
+* Rate completed deliveries
+* Rate drivers
+* Receive system notifications
+* Send and receive messages
 
----
-
-# Driver Module
+## Driver Module
 
 Drivers can:
 
-- View assigned deliveries
-- Update availability status
-- Accept delivery assignments
-- Update delivery progress
-- Change delivery status:
-  - Assigned
-  - Picked Up
-  - In Transit
-  - Delivered
+* View assigned deliveries
+* View pickup and drop-off locations
+* Open customer locations using Google Maps
+* Update availability status
+* Accept assigned deliveries
+* Update delivery progress
+* Change delivery status through different stages:
 
-- View customer pickup and drop-off locations
-- Receive assignment notifications
-- Chat with customers
+  * Assigned
+  * Pickup Started
+  * In Transit
+  * Delivered
+* Receive assignment notifications
+* Communicate with customers through the messaging system
 
----
-
-# Manager Module
+## Manager Module
 
 Managers can:
 
-- View all orders
-- Assign drivers
-- Update order status
-- Monitor delivery progress
-- View delivery statistics
-- Manage delivery workflow
+* View all delivery orders
+* Assign drivers to orders
+* Monitor delivery progress
+* Update order status
+* View delivery statistics
+* Manage the overall delivery workflow
 
----
-
-# Finance Module
+## Finance Module
 
 Finance users can:
 
-- View payments
-- View completed orders
-- Update payment status
-- Print payment reports as PDF
-- Monitor payment history
+* View all completed orders
+* View payment records
+* Update payment status
+* Generate printable PDF payment reports
+* Monitor payment history
 
----
+## Administrator Module
 
-# Admin Module
+Administrators have complete system access and can:
 
-Administrators can:
+* Manage all users
+* Create new users
+* Update user information
+* Delete users
+* View all orders
+* View all drivers
+* Manage delivery operations
+* Access platform statistics
+* Control the overall system
 
-- Manage all users
-- Create new users
-- Edit user information
-- Delete users
-- View all orders
-- Manage drivers
-- Monitor platform statistics
-- Control overall system operations
+## Address Management
 
----
+The system allows customers to:
 
-# Payment System
+* Create multiple addresses
+* Edit addresses
+* Delete addresses
+* Store geographic coordinates
+* Select locations using Google Maps
+* Use saved addresses during order creation
 
-The project integrates **Stripe** to provide secure online payment processing.
+## Order Management
 
-Features include:
+The application supports:
 
-- Stripe Payment Intent
-- Secure Card Payments
-- Payment Validation
-- Payment History
-- Payment Status Tracking
+* Creating delivery orders
+* Multiple order items
+* Pickup address selection
+* Drop-off address selection
+* Order price calculation
+* Delivery status tracking
+* Driver assignment
+* Delivery completion
+* Customer ratings
 
----
+## Payment System
 
-# OTP Verification
-
-Phone number verification is implemented using **Twilio Verify API**.
-
-Features include:
-
-- OTP Generation
-- SMS Verification
-- Phone Number Validation
-- Secure User Verification
-
----
-
-# Google Maps Integration
-
-Google Maps is integrated into the frontend to manage customer locations.
+Stripe is integrated to provide secure online payment processing.
 
 Features include:
 
-- Google Maps API
-- Google Maps API Key
-- Display Pickup Location
-- Display Drop-off Location
-- Save Latitude and Longitude
-- Interactive Map Selection
+* Stripe Payment Intents
+* Secure card payments
+* Payment validation
+* Payment history
+* Payment status tracking
+* Finance management
 
----
+## OTP Verification
 
-# Notification System
+Phone number verification is implemented using Twilio Verify.
 
-The application uses **Laravel Database Notifications**.
+Features include:
 
-Notifications are automatically generated when:
+* SMS OTP generation
+* OTP verification
+* Phone number validation
+* Secure account activation
 
-- A driver is assigned to an order
-- Order status changes
-- Delivery updates occur
+## Notification System
+
+The application uses Laravel Database Notifications.
+
+Notifications are automatically generated for different events, including:
+
+* Driver assignment
+* Order status updates
+* Delivery progress updates
 
 Customers and drivers can view notifications directly inside the application.
 
----
+## Messaging System
 
-# Messaging System
-
-An internal messaging system allows communication between users.
+The application includes an internal messaging system that enables communication between different users.
 
 Supported conversations include:
 
-- Customer ↔ Driver
-- Customer ↔ Admin
-- Driver ↔ Manager
+* Customer ↔ Driver
+* Customer ↔ Administrator
+* Driver ↔ Manager
 
----
+## Rating System
 
-# API Testing
+Customers can submit ratings after delivery completion.
 
-All REST API endpoints were tested using **Apidog**.
+Supported ratings include:
+
+* Driver rating
+* Order rating
+
+## Google Maps Integration
+
+Google Maps is integrated into the frontend.
+
+Features include:
+
+* Interactive map selection
+* Pickup location display
+* Drop-off location display
+* Latitude and longitude storage
+* Google Maps API integration
+* Google Maps API Key authentication
+
+## API Testing
+
+All backend REST API endpoints were tested using Apidog.
 
 The testing covered:
 
-- Authentication
-- OTP Verification
-- User Management
-- Address Management
-- Orders
-- Payments
-- Notifications
-- Messaging
-- Ratings
-- Role Authorization
+* Authentication
+* OTP Verification
+* Authorization
+* User Management
+* Address Management
+* Orders
+* Payments
+* Notifications
+* Messaging
+* Ratings
+* Driver Assignment
 
----
+## Technologies
 
-# Technologies Used
+### Backend
 
-## Backend
+* Laravel
+* PHP
+* MySQL
+* Laravel Sanctum
+* Eloquent ORM
+* RESTful API
+* Middleware
+* Role-Based Authorization
+* Laravel Database Notifications
+* Stripe API
+* Twilio Verify API
 
-- Laravel
-- Laravel Sanctum
-- RESTful API
-- MySQL
-- Eloquent ORM
-- Middleware
-- Role-Based Authorization
-- Laravel Notifications
-- Stripe API
-- Twilio Verify API
+### Frontend
 
----
+* React.js
+* React Router DOM
+* Axios
+* Context API
+* Reducers
+* Material UI
+* Material UI Icons
+* Bootstrap
+* React PDF
+* Google Maps API
 
-## Frontend
-
-- React.js
-- React Router DOM
-- Axios
-- Context API
-- Reducers
-- Material UI
-- Material UI Icons
-- Bootstrap
-- React PDF
-- Google Maps API
-
----
-
-# System Architecture
+## System Architecture
 
 ```text
 React.js Frontend
         │
         ▼
-RESTful API (Laravel)
+Laravel REST API
         │
         ▼
 MySQL Database
         │
-        ├── Stripe
-        ├── Twilio Verify
-        └── Google Maps API
+        ├── Stripe Payment Gateway
+        ├── Twilio Verify API
+        ├── Google Maps API
+        └── Laravel Database Notifications
 ```
 
----
+## Security
 
-# Security
+Security features implemented in the project include:
 
-The application includes:
+* Laravel Sanctum Authentication
+* Role-Based Middleware
+* Protected API Endpoints
+* Password Hashing
+* OTP Verification
+* Authorization
+* Request Validation
 
-- Laravel Sanctum Authentication
-- Role-Based Middleware
-- Protected API Endpoints
-- Request Validation
-- Password Hashing
-- OTP Verification
-- Authorization Policies
+## Main Modules
 
----
+* Authentication
+* OTP Verification
+* User Management
+* Address Management
+* Google Maps
+* Order Management
+* Driver Assignment
+* Delivery Tracking
+* Payments
+* Ratings
+* Notifications
+* Messaging
+* Reports
+* Statistics
 
-# Project Structure
+## Project Structure
 
 ```text
 Delivery-Management-System
 │
 ├── backend
-│   ├── Laravel
-│   ├── REST API
-│   └── MySQL
+│   ├── Laravel REST API
+│   ├── Controllers
+│   ├── Models
+│   ├── Middleware
+│   ├── Notifications
+│   ├── Migrations
+│   └── Routes
 │
 ├── frontend
 │   ├── React.js
-│   ├── Material UI
+│   ├── Components
 │   ├── Context API
-│   └── Axios
+│   ├── Reducers
+│   ├── Pages
+│   ├── Services
+│   ├── Material UI
+│   └── Routing
 │
 └── Documentation
     ├── README.md
-    ├── Backend README
-    └── Frontend README
+    ├── Backend README.md
+    └── Frontend README.md
 ```
 
----
+## Future Improvements
 
-# Main Modules
+Potential future enhancements include:
 
-- Authentication
-- OTP Verification
-- User Management
-- Address Management
-- Google Maps
-- Order Management
-- Driver Assignment
-- Delivery Tracking
-- Payment Processing
-- Ratings
-- Notifications
-- Messaging
-- Reports
-- Statistics
+* Firebase Cloud Messaging (Push Notifications)
+* Real-Time Messaging using Laravel Reverb
+* Live Driver Tracking
+* Progressive Web Application (PWA)
+* Mobile Application
+* Email Notifications
+* Analytics Dashboard
+* Multi-language Support
+* Route Optimization
+* Dark Mode
 
----
+## Author
 
-# Future Improvements
-
-- Firebase Cloud Messaging (Push Notifications)
-- Real-Time Messaging using Laravel Reverb
-- Live Driver Tracking
-- Mobile Application
-- Email Notifications
-- Analytics Dashboard
-- Multi-language Support
-
----
-
-# Author
-
-**Ali Mahmoud**
-
----
+Ali Mahmoud
